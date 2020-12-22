@@ -9,19 +9,20 @@
 </head>
 
 <body>
-    <p>
-        <?php
-
-        // Résultats attendus
-            // parseToRoman(4); // === "IV"
-            // parseToRoman(37); // === "XXXVII"
-            // parseToRoman(143); // === "CXLIII"
-            // parseToRoman(1234); // === "MCCXXXIV"
-
+    <p>Résultats attendus :</p>
+    <p>parseToRoman(4); // === "IV"<br>
+        parseToRoman(37); // === "XXXVII"<br>
+        parseToRoman(143); // === "CXLIII"<br>
+        parseToRoman(1234); // === "MCCXXXIV"<br></p>
+    <p>Ma réponse :</p>
+    <?php parseToRomain(1234); ?>
+    <p>Solution OCR (adaptée du JS) mais ne fait pas le IV (4) ou IX (9) :</p>
+    <?php parseToRoman(1234);?>
+    
+    <?php
         // Ma réponse
-            parseToRoman(1234);
 
-            function parseToRoman(int $number) {
+            function parseToRomain(int $number) {
 
                 define('ROMAIN', array('I', 'V', 'X', 'L', 'C', 'D', 'M'));
 
@@ -69,8 +70,24 @@
                 
                 echo $mil . $cent . $diz . $unit;
             };
-        ?>
-    </p>
+
+        // Solution OCR (adaptée du JS) mais ne fait pas le IV (4) ou IX (9)
+
+        function parseToRoman(int $number) {
+
+            define('ROMAN', array("M", "D", "C", "L", "X", "V", "I"));
+            define('DECIMAL', array(1000, 500, 100, 50, 10, 5, 1));
+            $result ="";
+
+            for ($i = 0; $i < count(DECIMAL); $i++) { 
+                while ($number%DECIMAL[$i] < $number) {
+                    $result .= ROMAN[$i];
+                    $number -= DECIMAL[$i];
+                }
+            }
+            echo $result;
+        };
+    ?>
 
 </body>
 </html>
