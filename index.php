@@ -15,9 +15,9 @@
         parseToRoman(143); // === "CXLIII"<br>
         parseToRoman(1234); // === "MCCXXXIV"<br></p>
     <p>Ma réponse :</p>
-    <?php parseToRomain(1234); ?>
-    <p>Solution OCR (adaptée du JS) mais ne fait pas le IV (4) ou IX (9) :</p>
-    <?php parseToRoman(1234);?>
+    <?php parseToRomain(2494); ?>
+    <p>Solution OCR (adaptée du JS) et amélioré pour faire les IV (4), IX (9), XL (40), XC (90), CD (400) & CM (900):</p>
+    <?php parseToRoman(2494);?>
     
     <?php
         // Ma réponse
@@ -75,8 +75,8 @@
 
         function parseToRoman(int $number) {
 
-            define('ROMAN', array("M", "D", "C", "L", "X", "V", "I"));
-            define('DECIMAL', array(1000, 500, 100, 50, 10, 5, 1));
+            define('ROMAN', array("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"));
+            define('DECIMAL', array(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1));
             $result ="";
 
             for ($i = 0; $i < count(DECIMAL); $i++) { 
