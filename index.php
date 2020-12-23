@@ -26,17 +26,21 @@
 
                 define('ROMAIN', array('I', 'V', 'X', 'L', 'C', 'D', 'M'));
 
+                // Les milliers
                 if (substr($number, 0, -3) !== null && substr($number, 0, -3) > 0) {
                     $mil = str_repeat(ROMAIN[6], (substr($number, 0, -3)));
                 } else {
                     $mil = null;
                 }
 
+                // Les centaines
                 if (substr($number, -3, 1) !== null && substr($number, 0, -2) > 0) {
                     if (substr($number, -3, 1) < 4) {
                         $cent = str_repeat(ROMAIN[4], (substr($number, -3, 1)));
                     } elseif (substr($number, -3, 1) == 4) {
                         $cent = ROMAIN[4] . ROMAIN[5];
+                    } elseif (substr($number, -3, 1) == 9) {
+                        $cent = ROMAIN[4] . ROMAIN[6];
                     } else {
                         $cent = ROMAIN[5] . str_repeat(ROMAIN[4], (substr($number, -3, 1)) - 5);
                     }
@@ -44,11 +48,14 @@
                     $cent = null;
                 }
                 
+                // Les dizaines
                 if (substr($number, -2, 1) !== null && substr($number, 0, -1) > 0) {
                     if (substr($number, -2, 1) < 4) {
                         $diz = str_repeat(ROMAIN[2], (substr($number, -2, 1)));
                     } elseif (substr($number, -2, 1) == 4) {
                         $diz = ROMAIN[2] . ROMAIN[3];
+                    } elseif (substr($number, -2, 1) == 9) {
+                        $diz = ROMAIN[2] . ROMAIN[4];
                     } else {
                         $diz = ROMAIN[3] . str_repeat(ROMAIN[4], (substr($number, -2, 1)) - 5);
                     }
@@ -56,11 +63,14 @@
                     $diz = null;
                 }
 
+                // Les unités
                 if (substr($number, -1, 1) !== null && $number > 0) {
                     if (substr($number, -1, 1) < 4) {
                         $unit = str_repeat(ROMAIN[0], (substr($number, -1, 1)));
                     } elseif (substr($number, -1, 1) == 4) {
                         $unit = ROMAIN[0] . ROMAIN[1];
+                    } elseif (substr($number, -1, 1) == 9) {
+                        $unit = ROMAIN[0] . ROMAIN[2];
                     } else {
                         $unit = ROMAIN[1] . str_repeat(ROMAIN[0], (substr($number, -1, 1)) - 5);
                     }
