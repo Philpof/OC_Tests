@@ -9,15 +9,18 @@
 </head>
 
 <body>
-    <p>Résultats attendus :</p>
+    <p>test n° 1 - Résultats attendus :</p>
     <p>parseToRoman(4); // === "IV"<br>
         parseToRoman(37); // === "XXXVII"<br>
         parseToRoman(143); // === "CXLIII"<br>
         parseToRoman(1234); // === "MCCXXXIV"<br></p>
+
+        <?php $myNumber = 1999; ?>
+
     <p>Ma réponse :</p>
-    <?php parseToRomain(2494); ?>
+    <?php parseToRomain($myNumber); ?>
     <p>Solution OCR (adaptée du JS) et amélioré pour faire les IV (4), IX (9), XL (40), XC (90), CD (400) & CM (900):</p>
-    <?php parseToRoman(2494);?>
+    <?php parseToRoman($myNumber);?>
     
     <?php
         // Ma réponse
@@ -98,6 +101,27 @@
             echo $result;
         };
     ?>
+
+    <p>test n° 2 - Résultats attendus :</p>
+        <p>toRot13('URYYB JBEYQ'); // HELLO WORLD <br>
+            toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
+            toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
+
+            <?php $myString = "TEST"; ?>
+
+        <p>Ma réponse :</p>
+        <?php transformeToRot13($myString); ?>
+        <p>Solution OCR (adaptée du JS) et amélioré pour faire les IV (4), IX (9), XL (40), XC (90), CD (400) & CM (900):</p>
+        <?php transformToRot13($myString);?>
+        
+        <?php
+            // Ma réponse  
+
+            function transformeToRot13($stringToTransform) {
+
+            }
+            
+        ?>
 
 </body>
 </html>
