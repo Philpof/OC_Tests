@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p>test n° 1 - Résultats attendus :</p>
+    <p>Test n° 1 - Résultats attendus :</p>
     <p>parseToRoman(4); // === "IV"<br>
         parseToRoman(37); // === "XXXVII"<br>
         parseToRoman(143); // === "CXLIII"<br>
@@ -102,7 +102,7 @@
         };
     ?>
 
-    <p>test n° 2 - Résultats attendus :</p>
+    <p>Test n° 2 - Résultats attendus :</p>
         <p>toRot13('URYYB JBEYQ'); // HELLO WORLD <br>
             toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
             toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
@@ -111,14 +111,25 @@
 
         <p>Ma réponse :</p>
         <?php transformeToRot13($myString); ?>
-        <p>Solution OCR (adaptée du JS) et amélioré pour faire les IV (4), IX (9), XL (40), XC (90), CD (400) & CM (900):</p>
-        <?php transformToRot13($myString);?>
+        <p>Solution OCR (à venir) :</p>
+        <!-- <?php // transformToRot13($myString);?> -->
         
         <?php
             // Ma réponse  
 
             function transformeToRot13($stringToTransform) {
 
+                // Tableau de l'alphabet
+                $alpha = range("A","Z");
+                // foreach ($alpha as $value) {
+                //     echo $value;
+                // }
+
+                // Test de la string en tableau
+                foreach (str_split($stringToTransform) as $value) {
+                    echo $value . "r";
+                }
+                
             }
             
         ?>
