@@ -107,7 +107,7 @@
             toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
             toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
 
-            <?php $myString = "TEST"; ?>
+            <?php $myString = "TEST SPACE"; ?>
 
         <p>Ma réponse :</p>
         <?php transformeToRot13($myString); ?>
@@ -126,10 +126,14 @@
                 // }
 
                 // Test de la string en tableau
-                foreach (str_split($stringToTransform) as $value) {
-                    echo $value . "r";
-                }
+                // foreach (str_split($stringToTransform) as $value) {
+                //     echo $value . "r";
+                // }
                 
+                // Test avec une bouche for
+                for ($i=0; $i < count(str_split($stringToTransform)); $i++) { 
+                    echo $stringToTransform[$i] . "1";
+                }
             }
             
         ?>
