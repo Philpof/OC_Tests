@@ -107,7 +107,7 @@
             toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
             toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
 
-            <?php $myString = "TEST SPACE"; ?>
+            <?php $myString = "PRPV RFG ZBA PBQR FRPERG"; ?>
 
         <p>Ma réponse :</p>
         <?php transformeToRot13($myString); ?>
@@ -118,24 +118,23 @@
             // Ma réponse  
 
             function transformeToRot13($stringToTransform) {
-
                 // Tableau de l'alphabet
                 $alpha = range("A","Z");
-                // foreach ($alpha as $value) {
-                //     echo $value;
-                // }
+                $alphaStr = implode($alpha);
 
                 // Test de la string en tableau
-                // foreach (str_split($stringToTransform) as $value) {
-                //     echo $value . "r";
-                // }
-                
-                // Test avec une bouche for
-                for ($i=0; $i < count(str_split($stringToTransform)); $i++) { 
-                    echo $stringToTransform[$i] . "1";
+                foreach (str_split($stringToTransform) as $value) {
+                    if ($value == " " ) {
+                        echo " ";
+                    } elseif (strpos($alphaStr, $value) < 13) {
+                        echo $alpha[strpos($alphaStr, $value) + 13];
+                    } else {
+                        echo $alpha[strpos($alphaStr, $value) - 13];
+                    }
                 }
             }
             
+            // Solution OCR
         ?>
 
 </body>
