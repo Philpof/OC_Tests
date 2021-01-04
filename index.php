@@ -120,7 +120,7 @@
         function transformeToRot13($stringToTransform) {
             // Tableau de l'alphabet
             $alpha = range("A","Z");
-            $alphaStr = implode($alpha);
+            $alphaStr = implode(range("A","Z"));
 
             // Test de la string en tableau
             foreach (str_split($stringToTransform) as $value) {
@@ -137,11 +137,17 @@
         // Solution OCR (adaptée du JS)
 
         function transformToRot13($stringToTransform) {
-            // Transformer $stringToTransform en array
-
-
-            // Transformer la lettre en valeur sotuée entre 65 et 98
-
+            // Transformer $stringToTransform en array >> pas besoin en PHP
+            for ($i = 0; $i < strlen($stringToTransform); $i++) {
+                $newStr = ord(substr($stringToTransform, $i));
+                if ($newStr < 65 || $newStr > 90) {
+                    echo chr($newStr);
+                } elseif ($newStr < 78) {
+                    echo chr($newStr + 13);
+                } else {
+                    echo chr($newStr - 13);
+                }
+            }
         }
     ?>
 
