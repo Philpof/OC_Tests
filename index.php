@@ -86,56 +86,64 @@
 
         // Solution OCR (adaptée du JS) mais ne fait pas le IV (4) ou IX (9)
 
-        function parseToRoman(int $number) {
+            function parseToRoman(int $number) {
 
-            define('ROMAN', array("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"));
-            define('DECIMAL', array(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1));
-            $result ="";
+                define('ROMAN', array("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"));
+                define('DECIMAL', array(1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1));
+                $result ="";
 
-            for ($i = 0; $i < count(DECIMAL); $i++) { 
-                while ($number%DECIMAL[$i] < $number) {
-                    $result .= ROMAN[$i];
-                    $number -= DECIMAL[$i];
+                for ($i = 0; $i < count(DECIMAL); $i++) { 
+                    while ($number%DECIMAL[$i] < $number) {
+                        $result .= ROMAN[$i];
+                        $number -= DECIMAL[$i];
+                    }
                 }
-            }
-            echo $result;
-        };
+                echo $result;
+            };
     ?>
 
     <p>Test n° 2 - Résultats attendus :</p>
-        <p>toRot13('URYYB JBEYQ'); // HELLO WORLD <br>
-            toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
-            toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
+    <p>toRot13('URYYB JBEYQ'); // HELLO WORLD <br>
+        toRot13('BCRAPYNFFEBBZF'); // OPENCLASSROOMS<br>
+        toRot13('PRPV RFG ZBA PBQR FRPERG'); // CECI EST MON CODE SECRET<br></p>
 
-            <?php $myString = "PRPV RFG ZBA PBQR FRPERG"; ?>
+        <?php $myString = "PRPV RFG ZBA PBQR FRPERG"; ?>
 
-        <p>Ma réponse :</p>
-        <?php transformeToRot13($myString); ?>
-        <p>Solution OCR (à venir) :</p>
-        <!-- <?php // transformToRot13($myString);?> -->
-        
-        <?php
-            // Ma réponse  
+    <p>Ma réponse :</p>
+    <?php transformeToRot13($myString); ?>
+    <p>Solution OCR (adaptée du JS) :</p>
+    <?php transformToRot13($myString);?>
+    
+    <?php
+        // Ma réponse  
 
-            function transformeToRot13($stringToTransform) {
-                // Tableau de l'alphabet
-                $alpha = range("A","Z");
-                $alphaStr = implode($alpha);
+        function transformeToRot13($stringToTransform) {
+            // Tableau de l'alphabet
+            $alpha = range("A","Z");
+            $alphaStr = implode($alpha);
 
-                // Test de la string en tableau
-                foreach (str_split($stringToTransform) as $value) {
-                    if ($value == " " ) {
-                        echo " ";
-                    } elseif (strpos($alphaStr, $value) < 13) {
-                        echo $alpha[strpos($alphaStr, $value) + 13];
-                    } else {
-                        echo $alpha[strpos($alphaStr, $value) - 13];
-                    }
+            // Test de la string en tableau
+            foreach (str_split($stringToTransform) as $value) {
+                if ($value == " " ) {
+                    echo " ";
+                } elseif (strpos($alphaStr, $value) < 13) {
+                    echo $alpha[strpos($alphaStr, $value) + 13];
+                } else {
+                    echo $alpha[strpos($alphaStr, $value) - 13];
                 }
             }
-            
-            // Solution OCR
-        ?>
+        }
+        
+        // Solution OCR (adaptée du JS)
+
+        function transformToRot13($stringToTransform) {
+            // Transformer $stringToTransform en array
+
+
+            // Transformer la lettre en valeur sotuée entre 65 et 98
+
+        }
+    ?>
 
 </body>
 </html>
