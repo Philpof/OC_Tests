@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Philippe PERECHODOV">
-    <title>Tests - OCR</title>
-
+    <title>OC_Tests</title>
 </head>
 
 <body>
