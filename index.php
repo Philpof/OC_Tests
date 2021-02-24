@@ -150,5 +150,7 @@
         }
     ?>
 
+<!-- Script pour le cours d'OC sur le JS -->
+<script type="text/javascript" src="book.js"></script>
 </body>
 </html>
